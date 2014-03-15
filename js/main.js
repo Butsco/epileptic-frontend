@@ -58,10 +58,10 @@ var captureError = function(error) {
     navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
 };
 
+document.addEventListener("deviceready", onDeviceReady, false);
 
 $(function() {
     init();
-    document.addEventListener("deviceready", onDeviceReady, false);
 });
 
 function onDeviceReady() {
