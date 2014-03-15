@@ -59,11 +59,14 @@ var captureError = function(error) {
 };
 
 
-
-
 $(function() {
     init();
+    document.addEventListener("deviceready", onDeviceReady, false);
+});
 
+function onDeviceReady() {
     // start audio capture
     navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:1});
-});
+}
+
+
