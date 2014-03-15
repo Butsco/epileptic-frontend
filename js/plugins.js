@@ -74,14 +74,16 @@ window.requestInterval = function(fn, delay) {
  * Behaves the same as clearInterval except uses cancelRequestAnimationFrame() where possible for better performance
  * @param {int|object} fn The callback function
  */
-    window.clearRequestInterval = function(handle) {
-    window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
-    window.webkitCancelAnimationFrame ? window.webkitCancelAnimationFrame(handle.value) :
-    window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value) : /* Support for legacy API */
-    window.mozCancelRequestAnimationFrame ? window.mozCancelRequestAnimationFrame(handle.value) :
-    window.oCancelRequestAnimationFrame ? window.oCancelRequestAnimationFrame(handle.value) :
-    window.msCancelRequestAnimationFrame ? window.msCancelRequestAnimationFrame(handle.value) :
-    clearInterval(handle);
+window.clearRequestInterval = function(handle) {
+    if (typeof handle !== "undefined") {
+        window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
+        window.webkitCancelAnimationFrame ? window.webkitCancelAnimationFrame(handle.value) :
+        window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value) : /* Support for legacy API */
+        window.mozCancelRequestAnimationFrame ? window.mozCancelRequestAnimationFrame(handle.value) :
+        window.oCancelRequestAnimationFrame ? window.oCancelRequestAnimationFrame(handle.value) :
+        window.msCancelRequestAnimationFrame ? window.msCancelRequestAnimationFrame(handle.value) :
+        clearInterval(handle);
+    }
 };
 
 
@@ -118,13 +120,15 @@ window.requestTimeout = function(fn, delay) {
  * @param {int|object} fn The callback function
  */
 window.clearRequestTimeout = function(handle) {
-    window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
-    window.webkitCancelAnimationFrame ? window.webkitCancelAnimationFrame(handle.value) :
-    window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value) : /* Support for legacy API */
-    window.mozCancelRequestAnimationFrame ? window.mozCancelRequestAnimationFrame(handle.value) :
-    window.oCancelRequestAnimationFrame ? window.oCancelRequestAnimationFrame(handle.value) :
-    window.msCancelRequestAnimationFrame ? window.msCancelRequestAnimationFrame(handle.value) :
-    clearTimeout(handle);
+    if (typeof handle !== "undefined") {
+        window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
+        window.webkitCancelAnimationFrame ? window.webkitCancelAnimationFrame(handle.value) :
+        window.webkitCancelRequestAnimationFrame ? window.webkitCancelRequestAnimationFrame(handle.value) : /* Support for legacy API */
+        window.mozCancelRequestAnimationFrame ? window.mozCancelRequestAnimationFrame(handle.value) :
+        window.oCancelRequestAnimationFrame ? window.oCancelRequestAnimationFrame(handle.value) :
+        window.msCancelRequestAnimationFrame ? window.msCancelRequestAnimationFrame(handle.value) :
+        clearTimeout(handle);
+    }
 };
 
 
