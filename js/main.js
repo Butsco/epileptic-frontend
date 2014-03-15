@@ -65,6 +65,8 @@ $(function() {
 });
 
 function onDeviceReady() {
+    console.log("deviceready");
+    console.log("navigator", navigator, navigator.device, navigator.device.capture);
     // start audio capture
     navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:1});
 }
