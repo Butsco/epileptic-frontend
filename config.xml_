@@ -19,4 +19,6 @@
         Butsco
     </author>
 
+    <gap:platform name="android" />
+
 </widget>
