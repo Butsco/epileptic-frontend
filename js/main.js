@@ -25,7 +25,7 @@ function blink(color, duration, interval) {
 }
 
 function flash(color, duration) {
-    console.log("blink", color, duration);
+    //console.log("blink", color, duration);
     setColor(color);
     requestTimeout(function() {
         setColor("black");
@@ -33,7 +33,7 @@ function flash(color, duration) {
 }
 
 function setColor(color) {
-    console.log("color", color);
+    //console.log("color", color);
     if (typeof color === "undefined") {
         color = "black";
     }
