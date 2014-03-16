@@ -40,35 +40,8 @@ function setColor(color) {
     output.css('background-color', color);
 };
 
-
-
-
-// capture callback
-var captureSuccess = function(mediaFiles) {
-    console.log("success", mediaFiles);
-    var i, path, len;
-    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-        path = mediaFiles[i].fullPath;
-        // do something interesting with the file
-    }
-};
-
-// capture error callback
-var captureError = function(error) {
-    navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
-};
-
-document.addEventListener("deviceready", onDeviceReady, false);
-
 $(function() {
     init();
 });
-
-function onDeviceReady() {
-    console.log("deviceready");
-    console.log("navigator", navigator, navigator.device, navigator.device.capture);
-    // start audio capture
-    navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:1});
-}
 
 
